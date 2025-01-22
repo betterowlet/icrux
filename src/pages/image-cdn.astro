@@ -1,6 +1,5 @@
 ---
 import { Image } from 'astro:assets';
-import ContextAlert from '../components/ContextAlert.astro';
 import Layout from '../layouts/Layout.astro';
 import Markdown from '../components/Markdown.astro';
 import corgi from '../assets/corgi.jpg';
@@ -60,11 +59,6 @@ detection, so format is set to WebP.
 <Layout title="Image CDN">
     <div class="flex flex-col gap-12 sm:gap-16">
         <section class="space-y-8">
-            <ContextAlert
-                addedChecksFunction={(ctx) => {
-                    return ctx === 'dev' ? devModeWarning : null;
-                }}
-            />
             <h1>Image CDN</h1>
         </section>
         <section>
