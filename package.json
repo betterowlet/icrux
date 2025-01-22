@@ -1,35 +1,49 @@
 {
-  "name": "astro-netlify-platform-starter",
-  "type": "module",
-  "version": "0.1.0",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/netlify": "^5.2.0",
-    "@astrojs/react": "^3.3.0",
-    "@astrojs/tailwind": "^5.1.0",
-    "@fontsource/inter": "^5.0.18",
-    "@netlify/blobs": "^8.1.0",
-    "@netlify/functions": "^2.8.2",
-    "@types/react": "^18.2.79",
-    "@types/react-dom": "^18.2.25",
-    "astro": "^4.16.18",
-    "blobshape": "^1.0.0",
-    "marked": "^13.0.0",
-    "marked-shiki": "^1.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "tailwindcss": "^3.4.3",
-    "unique-names-generator": "^4.7.1"
-  },
-  "devDependencies": {
-    "@types/blobshape": "^1.0.3",
-    "@types/node": "^20.12.7",
-    "daisyui": "^4.10.2"
-  }
+    "name": "crux-dashboard",
+    "type": "module",
+    "version": "0.1.0",
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:betterowlet/icrux.git"
+    },
+    "license": "MIT",
+    "scripts": {
+        "dev": "astro dev",
+        "start": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview",
+        "astro": "astro",
+        "netlify": "netlify"
+    },
+    "devDependencies": {
+        "@astrojs/netlify": "^6.1.0",
+        "@astrojs/react": "^4.1.5",
+        "@astrojs/svelte": "^7.0.3",
+        "@astrojs/tailwind": "^5.1.4",
+        "@netlify/edge-functions": "^2.11.1",
+        "@types/blobshape": "^1.0.3",
+        "@types/node": "^22.10.7",
+        "daisyui": "^4.10.2",
+        "typescript": "^5.7.3"
+    },
+    "dependencies": {
+        "@fontsource/inter": "^5.1.1",
+        "@netlify/blobs": "^8.1.0",
+        "@netlify/functions": "^3.0.0",
+        "@types/react": "^19.0.7",
+        "@types/react-dom": "^19.0.3",
+        "astro": "^5.1.7",
+        "axios": "^1.7.9",
+        "blobshape": "^1.0.0",
+        "marked": "^15.0.6",
+        "marked-shiki": "^1.1.1",
+        "netlify": "^13.3.2",
+        "prepend-http": "^4.0.0",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+        "svelte": "^5.19.0",
+        "tailwindcss": "^3.4.17",
+        "unique-names-generator": "^4.7.1"
+    }
 }
