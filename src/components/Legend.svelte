@@ -14,13 +14,13 @@
 </script>
 
 <div>
-    <h2 title={metricData.name} class="text-3xl font-bold mb-6">
+    <h3 title={metricData.name} class="text-lg font-bold mb-4">
         <span class="mobile">
             {metric}
         </span>
         <span class="desktop">{metricData.name} </span>
-    </h2>
-    <p class="legend">
+    </h3>
+    <p class="legend mb-4 text-sm">
         <span>🟢 good (&lt; {metricData.range[0]} {unit}) </span>
         <span>🟠 needs improvement</span>
         <span>🔴 poor (&gt; {metricData.range[1]}{unit})</span>
@@ -36,7 +36,6 @@
     }
     .legend {
         text-align: right;
-        padding: 10px 0;
     }
 
     .legend span {

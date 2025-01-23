@@ -1,0 +1,78 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.svelte';
+import UrlsByMetric from '../components/UrlsByMetric.svelte';
+import MetricsByUrl from '../components/MetricsByUrl.svelte';
+
+const params = Astro.url.searchParams;
+const urls = params.getAll('url');
+const checkOrigin = !!params.get('checkOrigin');
+const formFactor = params.get('formFactor') || 'PHONE';
+
+const initialData = {
+    url: urls,
+    checkOrigin,
+    formFactor
+};
+
+let cruxData = null;
+let error = null;
+
+if (urls.length > 0) {
+    try {
+        const response = await fetch(`${Astro.url.origin}/api/crux`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(initialData)
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            cruxData = data;
+        } else {
+            error = data;
+        }
+    } catch (e) {
+        error = e.message;
+    }
+}
+---
+
+<Layout title="CrUX Detail">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-2xl font-bold mb-6">CrUX Performance Details</h1>
+
+        {error && <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">{error}</div>}
+
+        {
+            !urls.length && (
+                <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative mb-4">
+                    No URLs provided. Please add URLs to view performance data.
+                </div>
+            )
+        }
+
+        {
+            cruxData && (
+                <div class="space-y-8">
+                    <div class="bg-white shadow rounded-lg p-6">
+                        <Header data={cruxData.cruxData} client:load />
+                    </div>
+
+                    <div class="bg-white shadow rounded-lg p-6">
+                        <h2 class="text-xl font-semibold mb-4">Performance by URL</h2>
+                        <UrlsByMetric data={cruxData.cruxData} client:load />
+                    </div>
+
+                    <div class="bg-white shadow rounded-lg p-6">
+                        <h2 class="text-xl font-semibold mb-4">Performance by Metric</h2>
+                        <MetricsByUrl data={cruxData.byMetric} client:load />
+                    </div>
+                </div>
+            )
+        }
+    </div>
+</Layout>

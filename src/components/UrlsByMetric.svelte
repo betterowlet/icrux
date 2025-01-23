@@ -32,7 +32,7 @@
     };
 </script>
 
-<div class="overflow-x-auto">
+<div class="overflow-x-auto bg-gray-50 p-6 rounded-md mt-4">
     <table class="table">
         <thead>
             <tr>

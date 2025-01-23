@@ -10,12 +10,14 @@
 {#each ['FCP', 'LCP', 'CLS', 'TTFB', 'INP'] as metric}
     <article class="mt-8">
         <Legend {metric} />
-        <table class="table">
-            <tbody>
-                {#each getMetric(data, metric) as p}
-                    <Metric post={p} />
-                {/each}
-            </tbody>
-        </table>
+        <div class="bg-gray-50 p-6 rounded-md">
+            <table class="table">
+                <tbody>
+                    {#each getMetric(data, metric) as p}
+                        <Metric post={p} />
+                    {/each}
+                </tbody>
+            </table>
+        </div>
     </article>
 {/each}

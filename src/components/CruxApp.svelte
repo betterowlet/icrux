@@ -11,7 +11,7 @@
     let initialData = $state({
         url: [''],
         checkOrigin: true,
-        formFactor: 'PHONE'
+        formFactor: 'ALL_FORM_FACTORS'
     });
 
     let promise = $state(Promise.reject(new Error('')));
@@ -91,12 +91,9 @@
                 <UiInput name="url" value={item} placeholder="url" remove={(e) => removeItem(i, e)} />
             </li>
         {/each}
-        {#if initialData.url[initialData.url.length - 1] !== ''}
-            <li><button onclick={addItem} class="btn">+</button></li>
-        {/if}
-
-        <li><button type="submit" class="btn btn-primary">Get CrUX</button></li>
+        <li><button onclick={addItem} class="btn">+</button></li>
     </ul>
+    <div class="mt-3 flex justify-end"><button type="submit" class="btn btn-primary">Get Chrome CrUX</button></div>
 </form>
 
 <div class="mt-8 mb-8">
